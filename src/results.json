@@ -1,0 +1,320 @@
+{
+  "baseline": {
+    "+Smiling": {
+      "Recall@1": 0.0654,
+      "Precision@1": 0.0654,
+      "Recall@5": 0.1895,
+      "Precision@5": 0.0502,
+      "Recall@10": 0.2603,
+      "Precision@10": 0.0405
+    },
+    "+Eyeglasses": {
+      "Recall@1": 0.036,
+      "Precision@1": 0.036,
+      "Recall@5": 0.1166,
+      "Precision@5": 0.0281,
+      "Recall@10": 0.1835,
+      "Precision@10": 0.0244
+    },
+    "-Heavy_Makeup": {
+      "Recall@1": 0.0276,
+      "Precision@1": 0.0276,
+      "Recall@5": 0.0942,
+      "Precision@5": 0.0215,
+      "Recall@10": 0.1417,
+      "Precision@10": 0.0178
+    },
+    "+Male": {
+      "Recall@1": 0.0069,
+      "Precision@1": 0.0069,
+      "Recall@5": 0.0169,
+      "Precision@5": 0.0043,
+      "Recall@10": 0.0263,
+      "Precision@10": 0.0038
+    },
+    "-Young": {
+      "Recall@1": 0.019,
+      "Precision@1": 0.019,
+      "Recall@5": 0.0639,
+      "Precision@5": 0.0151,
+      "Recall@10": 0.1091,
+      "Precision@10": 0.0149
+    },
+    "+Blond_Hair": {
+      "Recall@1": 0.0272,
+      "Precision@1": 0.0272,
+      "Recall@5": 0.0874,
+      "Precision@5": 0.0229,
+      "Recall@10": 0.1381,
+      "Precision@10": 0.0206
+    },
+    "+Mustache": {
+      "Recall@1": 0.0698,
+      "Precision@1": 0.0698,
+      "Recall@5": 0.1595,
+      "Precision@5": 0.0439,
+      "Recall@10": 0.2292,
+      "Precision@10": 0.0349
+    },
+    "+Eyeglasses, +Smiling": {
+      "Recall@1": 0.0261,
+      "Precision@1": 0.0261,
+      "Recall@5": 0.0882,
+      "Precision@5": 0.019,
+      "Recall@10": 0.1405,
+      "Precision@10": 0.016
+    },
+    "+Black_Hair, -Wavy_Hair": {
+      "Recall@1": 0.0288,
+      "Precision@1": 0.0288,
+      "Recall@5": 0.1038,
+      "Precision@5": 0.0243,
+      "Recall@10": 0.1715,
+      "Precision@10": 0.0222
+    },
+    "-Male, -Mustache": {
+      "Recall@1": 0.0,
+      "Precision@1": 0.0,
+      "Recall@5": 0.0,
+      "Precision@5": 0.0,
+      "Recall@10": 0.0,
+      "Precision@10": 0.0
+    },
+    "+Chubby, -Young": {
+      "Recall@1": 0.0034,
+      "Precision@1": 0.0034,
+      "Recall@5": 0.0103,
+      "Precision@5": 0.0024,
+      "Recall@10": 0.0171,
+      "Precision@10": 0.0019
+    },
+    "-Smiling, +Eyeglasses, +Wearing_Hat": {
+      "Recall@1": 0.0253,
+      "Precision@1": 0.0253,
+      "Recall@5": 0.0886,
+      "Precision@5": 0.0177,
+      "Recall@10": 0.1392,
+      "Precision@10": 0.0139
+    },
+    "+Wearing_Lipstick, -Heavy_Makeup, +Smiling": {
+      "Recall@1": 0.0294,
+      "Precision@1": 0.0294,
+      "Recall@5": 0.0882,
+      "Precision@5": 0.0176,
+      "Recall@10": 0.0882,
+      "Precision@10": 0.0088
+    }
+  },
+  "model_50": {
+    "+Smiling": {
+      "Recall@1": 0.0602,
+      "Precision@1": 0.0602,
+      "Recall@5": 0.1598,
+      "Precision@5": 0.0436,
+      "Recall@10": 0.2177,
+      "Precision@10": 0.0346
+    },
+    "+Eyeglasses": {
+      "Recall@1": 0.0783,
+      "Precision@1": 0.0783,
+      "Recall@5": 0.2318,
+      "Precision@5": 0.0577,
+      "Recall@10": 0.3411,
+      "Precision@10": 0.0484
+    },
+    "-Heavy_Makeup": {
+      "Recall@1": 0.0274,
+      "Precision@1": 0.0274,
+      "Recall@5": 0.0954,
+      "Precision@5": 0.022,
+      "Recall@10": 0.161,
+      "Precision@10": 0.0206
+    },
+    "+Male": {
+      "Recall@1": 0.0351,
+      "Precision@1": 0.0351,
+      "Recall@5": 0.1361,
+      "Precision@5": 0.0347,
+      "Recall@10": 0.205,
+      "Precision@10": 0.0305
+    },
+    "-Young": {
+      "Recall@1": 0.0314,
+      "Precision@1": 0.0314,
+      "Recall@5": 0.1176,
+      "Precision@5": 0.0268,
+      "Recall@10": 0.1867,
+      "Precision@10": 0.0236
+    },
+    "+Blond_Hair": {
+      "Recall@1": 0.0391,
+      "Precision@1": 0.0391,
+      "Recall@5": 0.1276,
+      "Precision@5": 0.0313,
+      "Recall@10": 0.1973,
+      "Precision@10": 0.028
+    },
+    "+Mustache": {
+      "Recall@1": 0.0698,
+      "Precision@1": 0.0698,
+      "Recall@5": 0.1595,
+      "Precision@5": 0.0405,
+      "Recall@10": 0.2392,
+      "Precision@10": 0.0329
+    },
+    "+Eyeglasses, +Smiling": {
+      "Recall@1": 0.0719,
+      "Precision@1": 0.0719,
+      "Recall@5": 0.2092,
+      "Precision@5": 0.052,
+      "Recall@10": 0.3007,
+      "Precision@10": 0.0402
+    },
+    "+Black_Hair, -Wavy_Hair": {
+      "Recall@1": 0.0346,
+      "Precision@1": 0.0346,
+      "Recall@5": 0.1256,
+      "Precision@5": 0.03,
+      "Recall@10": 0.2065,
+      "Precision@10": 0.0274
+    },
+    "-Male, -Mustache": {
+      "Recall@1": 0.037,
+      "Precision@1": 0.037,
+      "Recall@5": 0.037,
+      "Precision@5": 0.0074,
+      "Recall@10": 0.0741,
+      "Precision@10": 0.0074
+    },
+    "+Chubby, -Young": {
+      "Recall@1": 0.0068,
+      "Precision@1": 0.0068,
+      "Recall@5": 0.0411,
+      "Precision@5": 0.0086,
+      "Recall@10": 0.0616,
+      "Precision@10": 0.007
+    },
+    "-Smiling, +Eyeglasses, +Wearing_Hat": {
+      "Recall@1": 0.0633,
+      "Precision@1": 0.0633,
+      "Recall@5": 0.2658,
+      "Precision@5": 0.0759,
+      "Recall@10": 0.4177,
+      "Precision@10": 0.0684
+    },
+    "+Wearing_Lipstick, -Heavy_Makeup, +Smiling": {
+      "Recall@1": 0.0294,
+      "Precision@1": 0.0294,
+      "Recall@5": 0.0294,
+      "Precision@5": 0.0059,
+      "Recall@10": 0.0294,
+      "Precision@10": 0.0029
+    }
+  },
+  "model_100": {
+    "+Smiling": {
+      "Recall@1": 0.0558,
+      "Precision@1": 0.0558,
+      "Recall@5": 0.1527,
+      "Precision@5": 0.0419,
+      "Recall@10": 0.2104,
+      "Precision@10": 0.0341
+    },
+    "+Eyeglasses": {
+      "Recall@1": 0.082,
+      "Precision@1": 0.082,
+      "Recall@5": 0.2222,
+      "Precision@5": 0.0568,
+      "Recall@10": 0.3256,
+      "Precision@10": 0.048
+    },
+    "-Heavy_Makeup": {
+      "Recall@1": 0.0257,
+      "Precision@1": 0.0257,
+      "Recall@5": 0.0881,
+      "Precision@5": 0.0199,
+      "Recall@10": 0.148,
+      "Precision@10": 0.0181
+    },
+    "+Male": {
+      "Recall@1": 0.0451,
+      "Precision@1": 0.0451,
+      "Recall@5": 0.1386,
+      "Precision@5": 0.0349,
+      "Recall@10": 0.2194,
+      "Precision@10": 0.0337
+    },
+    "-Young": {
+      "Recall@1": 0.0317,
+      "Precision@1": 0.0317,
+      "Recall@5": 0.1128,
+      "Precision@5": 0.0266,
+      "Recall@10": 0.1819,
+      "Precision@10": 0.0225
+    },
+    "+Blond_Hair": {
+      "Recall@1": 0.0461,
+      "Precision@1": 0.0461,
+      "Recall@5": 0.1527,
+      "Precision@5": 0.0387,
+      "Recall@10": 0.2339,
+      "Precision@10": 0.0354
+    },
+    "+Mustache": {
+      "Recall@1": 0.0631,
+      "Precision@1": 0.0631,
+      "Recall@5": 0.186,
+      "Precision@5": 0.0465,
+      "Recall@10": 0.2757,
+      "Precision@10": 0.0392
+    },
+    "+Eyeglasses, +Smiling": {
+      "Recall@1": 0.0801,
+      "Precision@1": 0.0801,
+      "Recall@5": 0.1993,
+      "Precision@5": 0.0513,
+      "Recall@10": 0.3105,
+      "Precision@10": 0.0444
+    },
+    "+Black_Hair, -Wavy_Hair": {
+      "Recall@1": 0.0338,
+      "Precision@1": 0.0338,
+      "Recall@5": 0.124,
+      "Precision@5": 0.0294,
+      "Recall@10": 0.1956,
+      "Precision@10": 0.0256
+    },
+    "-Male, -Mustache": {
+      "Recall@1": 0.0,
+      "Precision@1": 0.0,
+      "Recall@5": 0.0,
+      "Precision@5": 0.0,
+      "Recall@10": 0.037,
+      "Precision@10": 0.0037
+    },
+    "+Chubby, -Young": {
+      "Recall@1": 0.0068,
+      "Precision@1": 0.0068,
+      "Recall@5": 0.0377,
+      "Precision@5": 0.0075,
+      "Recall@10": 0.0839,
+      "Precision@10": 0.0094
+    },
+    "-Smiling, +Eyeglasses, +Wearing_Hat": {
+      "Recall@1": 0.1266,
+      "Precision@1": 0.1266,
+      "Recall@5": 0.2911,
+      "Precision@5": 0.081,
+      "Recall@10": 0.443,
+      "Precision@10": 0.0709
+    },
+    "+Wearing_Lipstick, -Heavy_Makeup, +Smiling": {
+      "Recall@1": 0.0294,
+      "Precision@1": 0.0294,
+      "Recall@5": 0.0882,
+      "Precision@5": 0.0176,
+      "Recall@10": 0.0882,
+      "Precision@10": 0.0088
+    }
+  }
+}
