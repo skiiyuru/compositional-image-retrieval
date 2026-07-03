@@ -13,3 +13,5 @@ wheels/
 data/
 src/*.pt
 .DS_Store
+src/celeba_evaluation.json
+clean-up.md
