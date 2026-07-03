@@ -1,52 +1,67 @@
 # Compositional Image Retrieval
 
-Read `OVERVIEW.md` for a detailed brief regarding the project
+## Goal
+
+Build a system that, given a reference image and a set of positive (`+`) and negative (`−`) text constraints, retrieves images that preserve the reference's identity while satisfying the constraints. We extend the CLAY framework (Lim et al., 2026) which builds on GDE (Berasi et al., 2025), addressing CLAY's limitation of naïve embedding stacking when handling multiple conditions.
+
+## Mandatory constraints (from the brief)
+
+- Model: CLIP ViT-B/32 from HuggingFace
+- Deliverable: single self-contained Jupyter notebook on Google Colab
+- Evaluate on the mandatory query list in `celeba_evaluation.json`
+- Report Recall@K and Precision@K at K=1, 5, 10
+
+## The four threads
+
+We split the work into four experimental threads. Each is independently runnable; later threads compose with earlier ones.
+
+### Thread 1 — Zero-shot baseline
+
+- **What:** Naïve Euclidean arithmetic on CLIP embeddings: `q = v_ref + Σt⁺ − Σt⁻`, then cosine similarity for retrieval.
+- **Why:** Establishes the lower bound everyone must beat. Forces us to nail down the evaluation pipeline before specialising.
+- **Reference:** Radford et al. 2021 (CLIP); also the brief's described baseline.
+
+### Thread 2 — GDE-style geodesic composition
+
+- **What:** Replace text-derived attribute directions with **image-derived** ones, computed on the unit hypersphere using the logarithm map. Add denoising via CLIP's image-to-text probabilities.
+- **Why:** GDE's results show massive gains (Table 1 in their paper) when respecting the manifold geometry vs naïve Euclidean composition. Training-free.
+- **Reference:** Berasi et al. 2025 (GDE), Sec. 3.
+
+### Thread 3 — LoRA on CLIP's text tower
+
+- **What:** Inject low-rank adapters into the Q/K/V matrices of CLIP's text encoder. Freeze everything else. Train on a contrastive retrieval objective.
+- **Why:** Specialises text representations for attribute-style phrasing without bloating parameters. Tests the training-based paradigm.
+- **Reference:** Hu et al. 2022 (LoRA); Zhang et al. 2022 (NOAH) for the prompt-tuning context.
+
+### Thread 4 — CLAY sign-aware subspaces
+
+- **What:** Build separate textual subspaces for positive (`P⁺`) and negative (`P⁻`) constraints using CLAY's manifold-aware tangent-space SVD. Two scoring variants:
+  - **B2 (null-space):** project database embeddings _away_ from `P⁻`, then score against `P⁺`
+  - **B1 (additive):** `score = sim(q, P⁺v) − λ·sim(q, P⁻v)`
+- **Why:** Directly extends CLAY's mechanism to handle CLAY's own limitation: naïve stacking of multiple conditions. Training-free.
+- **Reference:** Lim et al. 2026 (CLAY), Sec. 3.2.
 
 ## Directory structure
 
 ```
 repo/
-├── OVERVIEW.md              # the task overview doc
-├── README.md                # this file
-├── data/                    # gitignored; CelebA images, eval JSON
-├── src/                     # development code (one file per thread)
-│   ├── manifold.py          # SHARED: log/exp maps, intrinsic mean (A + C)
-│   ├── eval.py              # SHARED: Recall@K, Precision@K, GT loading
-│   ├── baseline.py          # Thread 1
-│   ├── gde.py               # Thread 2 (Person A)
-│   ├── lora.py              # Thread 3 (Person B)
-│   └── clay.py              # Thread 4 (Person C)
+├── OVERVIEW.md
+├── README.md
+├── data/
+├── src/
+│   ├── manifold.py
+│   ├── eval.py
+│   ├── baseline.py
+│   ├── gde.py
+│   ├── lora.py
+│   └── clay.py
 ├── notebooks/
-│   ├── steve.ipynb          # one notebook per person, never merged
+│   ├── steve.ipynb
 │   ├── a.ipynb
 │   ├── b.ipynb
-│   └── final.ipynb          # assembled at the end
-└── results/                 # saved metrics, checkpoints
+│   └── final.ipynb
+└── results/
 ```
-
-## Branching strategy
-
-- `main` — stable, working code only. Merges happen via PR.
-- One branch per person (`thread:gde`, `thread:lora`, `thread:clay`) — long-lived, used during development.
-- Shared files (`manifold.py`, `eval.py`) → coordinate before editing; small focused PRs.
-
-## Final notebook assembly
-
-Because the deliverable must be self-contained:
-
-1. Develop in `src/*.py` (clean diffs, testable)
-2. Near the end, create `notebooks/final.ipynb`
-3. **Inline** the code from `src/*.py` into notebook cells, organised by thread
-4. Add markdown narrative around each section
-5. Connect Colab to the repo; run end-to-end; freeze outputs
-
-The "inlining" step is mostly mechanical copy-paste, but it forces a final cleanup of dead code — treat it as a feature, not a chore.
-
-## Coordination points
-
-- **Week 1:** A and C agree on the `manifold.py` API (function signatures for `log_map`, `exp_map`, `intrinsic_mean`).
-- **End of week 1:** Thread 1 baseline + eval harness merged to `main`. Everyone uses the same evaluation code from this point on.
-- **Week 4:** Combined comparison chain runs end-to-end. Lock the codebase 3 days before submission.
 
 ## Environment Setup
 
@@ -64,18 +79,6 @@ source .venv/bin/activate
 ```
 
 `uv sync` reads `pyproject.toml` + `uv.lock` and installs the exact pinned versions. PyTorch is resolved automatically for your local CUDA version via `torch-backend = "auto"` — no manual index selection needed.
-
-### Running code
-
-```bash
-# Run a script
-uv run python src/baseline.py
-
-# Start Jupyter
-uv run jupyter notebook
-```
-
-Using `uv run` ensures the correct venv is always used, even without activating it.
 
 ### Adding a dependency
 
