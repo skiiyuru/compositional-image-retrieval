@@ -1,10 +1,12 @@
 # Compositional Image Retrieval
 
+![cover](image.png)
+
 ## Goal
 
 Build a system that, given a reference image and a set of positive (`+`) and negative (`−`) text constraints, retrieves images that preserve the reference's identity while satisfying the constraints. We extend the CLAY framework (Lim et al., 2026) which builds on GDE (Berasi et al., 2025), addressing CLAY's limitation of naïve embedding stacking when handling multiple conditions.
 
-## Mandatory constraints (from the brief)
+## Constraints
 
 - Model: CLIP ViT-B/32 from HuggingFace
 - Deliverable: single self-contained Jupyter notebook on Google Colab
